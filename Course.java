@@ -4,26 +4,85 @@ public class Course {
     private String title;
     private String description;
     private String schedule;
-    private List<Student> students;
+    private Student[] students;
     private Department department;
+    private int studentCount;
 
     public Course(int course_id, String title, String description, String schedule, Department department) {
         this.course_id = course_id;
         this.title = title;
         this.description = description;
         this.schedule = schedule;
-        // don't use arraylist
-        students = new Student[10];
+        this.students = new Student[300];
         this.department = department;
+        this.studentCount = 0;
     }
 
     public void add_student(Student student) {
-        students.add(student);
+        if (studentCount < students.length) {
+            students[studentCount++] = student;
+        } else {
+            System.out.println("Course is full, cannot add more students.");
+        }
     }
 
     public void remove_student(Student student) {
-        students.remove(student);
+        for (int i = 0; i < studentCount; i++) {
+            if (students[i].equals(student)) {
+                students[i] = students[--studentCount];
+                students[studentCount] = null;
+                break;
+            }
+        }
     }
 
-    // Getters and setters for the fields can be added here if needed
+    public void print_students() {
+        for (int i = 0; i < studentCount; i++) {
+            System.out.println(students[i]);
+        }
+    }
+
+    public int getCourse_id() {
+        return course_id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getSchedule() {
+        return schedule;
+    }
+
+    public Student[] getStudents() {
+        return students;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public int getStudentCount() {
+        return studentCount;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "course_id=" + course_id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", schedule='" + schedule + '\'' +
+                ", students=" + students +
+                ", department=" + department +
+                ", studentCount=" + studentCount +
+                '}';
+    }
+
+    
+
 }
