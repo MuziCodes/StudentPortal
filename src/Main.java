@@ -1,0 +1,7 @@
+// Use Swing library
+
+//Once logged in, students can easily access their academic information. The portal provides a user-friendly interface where students can view their Grade Point Average (GPA), detailed marks for each course, and any outstanding fees. Additionally, students can review their registered courses and track attendance records through dedicated sections within the portal. This centralized access allows students to monitor their academic progress and manage their educational responsibilities efficiently.
+
+// Student and faculty records are stored in a secure database within the portal. The system allows for the easy updating and management of these records, ensuring that all information is current and accurate. Students can edit their personal information as needed, while faculty can update their course details and departmental roles. Regular backups and data integrity checks are implemented to protect against data loss and ensure compliance with privacy regulations.
+
+//The portal includes various collaboration tools designed to facilitate communication and project management among students and faculty. Features such as discussion forums, messaging systems, and shared document storage enable effective collaboration on group projects and academic initiatives. These tools encourage interaction and teamwork, enhancing the learning experience and promoting a sense of community within the academic environment.

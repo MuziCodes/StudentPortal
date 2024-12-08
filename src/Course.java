@@ -1,4 +1,5 @@
 // Qazi Owais
+
 public class Course {
     private int course_id;
     private String title;
