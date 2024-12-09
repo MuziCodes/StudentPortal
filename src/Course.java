@@ -1,50 +1,52 @@
 // Qazi Owais
+import java.util.ArrayList;
+import java.util.List;
 
 public class Course {
-    private int course_id;
+    private int courseId;
     private String title;
     private String description;
     private String schedule;
-    private Student[] students;
+    private List<Student> students;
     private Department department;
-    private int studentCount;
 
-    public Course(int course_id, String title, String description, String schedule, Department department) {
-        this.course_id = course_id;
+    public Course(int courseId, String title, String description, String schedule, Department department) {
+        this.courseId = courseId;
         this.title = title;
         this.description = description;
         this.schedule = schedule;
-        this.students = new Student[300];
+        this.students = new ArrayList<>();
         this.department = department;
-        this.studentCount = 0;
     }
 
-    public void add_student(Student student) {
-        if (studentCount < students.length) {
-            students[studentCount++] = student;
+    public void addStudent(Student student) {
+        if (!students.contains(student)) {
+            students.add(student);
         } else {
-            System.out.println("Course is full, cannot add more students.");
+            System.out.println("Student is already enrolled in the course.");
         }
     }
 
-    public void remove_student(Student student) {
-        for (int i = 0; i < studentCount; i++) {
-            if (students[i].equals(student)) {
-                students[i] = students[--studentCount];
-                students[studentCount] = null;
-                break;
+    public void removeStudent(Student student) {
+        if (students.remove(student)) {
+            System.out.println("Student removed successfully.");
+        } else {
+            System.out.println("Student not found in the course.");
+        }
+    }
+
+    public void printStudents() {
+        if (students.isEmpty()) {
+            System.out.println("No students enrolled in the course.");
+        } else {
+            for (Student student : students) {
+                System.out.println(student);
             }
         }
     }
 
-    public void print_students() {
-        for (int i = 0; i < studentCount; i++) {
-            System.out.println(students[i]);
-        }
-    }
-
-    public int getCourse_id() {
-        return course_id;
+    public int getCourseId() {
+        return courseId;
     }
 
     public String getTitle() {
@@ -59,8 +61,8 @@ public class Course {
         return schedule;
     }
 
-    public Student[] getStudents() {
-        return students;
+    public List<Student> getStudents() {
+        return new ArrayList<>(students); // Returning a copy to prevent external modification
     }
 
     public Department getDepartment() {
@@ -68,22 +70,21 @@ public class Course {
     }
 
     public int getStudentCount() {
-        return studentCount;
+        return students.size();
     }
 
     @Override
     public String toString() {
         return "Course{" +
-                "course_id=" + course_id +
+                "courseId=" + courseId +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", schedule='" + schedule + '\'' +
                 ", students=" + students +
                 ", department=" + department +
-                ", studentCount=" + studentCount +
+                ", studentCount=" + students.size() +
                 '}';
     }
+}
 
     
-
-}
