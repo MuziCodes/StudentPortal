@@ -1,4 +1,4 @@
-// Muhammad Akif
+// Muhammad Akif Alvi 
 import java.io.*;
 import java.util.Scanner;
 // maybe don't give different experience to faculty and student?
