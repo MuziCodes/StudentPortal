@@ -1,12 +1,12 @@
 // Qazi Owais
 
 public class Course {
-    private int course_id;
+    private String course_id;
     private String title;
     private String description;
     private String schedule;
     private Student[] students;
-    private Department department;
+    private Department []department;
     private int studentCount;
 
     public Course(int course_id, String title, String description, String schedule, Department department) {
